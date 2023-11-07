@@ -1,6 +1,6 @@
 #Script to plot data and model
 
-growth_data <- read.csv("???")
+growth_data <- read.csv("experiment1.csv")
 
 logistic_fun <- function(t) {
   
@@ -10,18 +10,26 @@ logistic_fun <- function(t) {
   
 }
 
-N0 <- ??? #
+N0 <- 986.507 #e^intercept from model1
   
-r <- ??? #
+r <- 0.0100086 #estimate of t from model1
   
-K <- ??? #
+K <- 6.000e+10 #intercept from model2
 
-ggplot(aes(???,???), data = growth_data) +
+ggplot(aes(t,N), data = growth_data) +
   
   geom_function(fun=logistic_fun, colour="red") +
   
   geom_point()
 
-  #scale_y_continuous(trans='log10')
+ggplot(aes(t,N), data = growth_data) +
+  
+  geom_point() +
+  
+  xlab("t") +
+  
+  ylab("y") +
+  
+  scale_y_continuous(trans='log10')
 
 
